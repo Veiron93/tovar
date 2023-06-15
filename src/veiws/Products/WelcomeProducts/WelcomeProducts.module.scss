@@ -1,0 +1,72 @@
+.welcomeProducts {
+	height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	//opacity: 0.1;
+
+	.welcomeProductsText {
+		text-align: center;
+		margin-top: 50px;
+
+		span {
+			display: block;
+
+			&:nth-child(1) {
+				font-weight: bold;
+				font-size: 70px;
+				margin-bottom: 10px;
+				color: var(--color-main);
+			}
+
+			&:nth-child(2) {
+				font-size: 22px;
+				font-weight: 500;
+			}
+		}
+	}
+
+	.btnCreateGroup {
+		margin: 50px auto 0;
+	}
+
+	.welcomeProductsInfo {
+		text-align: center;
+		margin-top: auto;
+		margin-bottom: 30px;
+	}
+}
+
+.formAddNewGroup {
+	//border: 1px solid;
+
+	form {
+		margin-bottom: 25px;
+
+		label {
+			display: block;
+			font-size: 16px;
+			margin-bottom: 7px;
+		}
+
+		input {
+			border-radius: var(--brs);
+			height: 46px;
+			width: 100%;
+			padding: 0px 10px;
+			border: 1px solid;
+			outline: none;
+			transition: border-color 0.2s;
+			font-size: 16px;
+
+			&:hover,
+			&:focus {
+				border-color: var(--color-main);
+			}
+		}
+	}
+
+	.btnAddNewGroup {
+		width: 150px;
+	}
+}
