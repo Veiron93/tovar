@@ -1,40 +1,65 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
 
 // components
-import Layout from "@/components/Layouts/Layout/Layout";
+import Layout from '@/pages/Layout/Layout';
 
 // pages
-import Index from "@/veiws/Index";
+import Index from '@/pages/Index';
 
 // routes
-import ProductsRoutes from "./products";
-import CashregisterRoutes from "./cashRegister";
-import SettingsRoutes from "./settings";
+import ProductsRoutes from './products';
+import CashregisterRoutes from './cashRegister';
+import HelpRouter from './help';
+import SettingsRoutes from './settings';
+import IndexAuth from '@/pages/Auth/indexAuth';
+import IndexRegistration from '@/pages/Registration/indexRegistration';
+import MailConfirm from '@/pages/MailConfirm';
 
 const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <Layout />,
+    {
+        path: '/',
+        element: <Layout />,
 
-		children: [
-			{
-				path: "/",
-				element: <Index />,
-			},
+        children: [
+            {
+                path: '/',
+                element: <Index />,
+            },
 
-			{
-				...ProductsRoutes
-			},
+            {
+                ...ProductsRoutes,
+            },
 
-			{
-				...CashregisterRoutes
-			},
+            {
+                ...CashregisterRoutes,
+            },
 
-			{
-				...SettingsRoutes,
-			},
-		],
-	},
+            {
+                ...HelpRouter,
+            },
+
+            {
+                ...SettingsRoutes,
+            },
+        ],
+    },
+
+    {
+        path: '/registration',
+        element: <IndexRegistration/>
+    },
+
+    {
+        path: '/auth',
+        element: <IndexAuth/>
+    },
+
+    {
+        path: '/mail-check',
+        element: <MailConfirm/>
+    },
+
+    
 ]);
 
 export default router;

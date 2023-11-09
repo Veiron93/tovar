@@ -1,32 +1,38 @@
 // pages
-import IndexProducts from "@/veiws/Products/IndexProducts";
-import WelcomeProducts from "@/veiws/Products/WelcomeProducts/WelcomeProducts";
-
+import WelcomeProducts from '@/pages/Products/WelcomeProducts/WelcomeProducts';
 // components
-import LayoutProducts from "@/components/Layouts/LayoutProducts/LayoutProducts";
+import LayoutProducts from '@/components/Layouts/LayoutProducts/LayoutProducts';
 
-let isNow = true;
+let isChilds = true;
 
 const productsChildren = [
-	{
-		path: "products-categories",
-		name: "Категории",
-		//element: <IndexProducts />,
-	},
+    {
+        path: 'products-categories',
+        name: 'Категории',
+    },
 
-	// {
-	// 	path: "other",
-	// 	name: "Что то ещё",
-	// 	element: <Security />,
-	// },
+    {
+        path: 'other',
+        name: 'Что то ещё',
+        // element: <Security />,
+    },
 ];
 
-const products = {
-	path: "products",
-	name: "Товары",
-	element: isNow ? <WelcomeProducts/>:<LayoutProducts navigation={productsChildren} index={<IndexProducts/>} rootPagePath="/products"/>,
+isChilds = !!productsChildren.length;
 
-	children: [...productsChildren],
+const products = {
+    path: 'products',
+    name: 'Товары',
+    element: !isChilds ? (
+        <WelcomeProducts />
+    ) : (
+        <LayoutProducts
+            navigation={productsChildren}
+            rootPagePath="/products"
+        />
+    ),
+
+    children: [...productsChildren],
 };
 
 export default products;

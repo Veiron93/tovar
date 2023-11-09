@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+.title {
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.link {
+    font-size: 14px;
+    color: #000;
+    text-decoration: underline;
+
+}

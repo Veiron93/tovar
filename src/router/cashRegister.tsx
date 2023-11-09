@@ -1,30 +1,36 @@
 // pages
-import IndexCashRegisters from "@/veiws/CashRegisters/IndexCashRegisters";
-import Profile from "@/veiws/CashRegisters/Places/Places";
-//import Security from "@/veiws/CashRegisters/Security/Security";
+import IndexCashRegisters from '@/pages/CashRegisters/IndexCashRegisters';
+import Profile from '@/pages/CashRegisters/Places/Places';
+//import Security from "@/pages/CashRegisters/Security/Security";
 
 // components
-import LayoutSubMenu from "@/components/Layouts/LayoutSubMenu/LayoutSubMenu";
+import LayoutSubMenu from '@/components/Layouts/LayoutSubMenu/LayoutSubMenu';
 
 const cashRegistersChildren = [
-	{
-		path: "places",
-		name: "Торговые точки",
-		element: <Profile />,
-	},
+    {
+        path: 'places',
+        name: 'Торговые точки',
+        element: <Profile />,
+    },
 
-	// {
-	// 	path: "other",
-	// 	name: "Что то ещё",
-	// 	element: <Security />,
-	// },
+    // {
+    // 	path: "other",
+    // 	name: "Что то ещё",
+    // 	element: <Security />,
+    // },
 ];
 
 const cashRegisters = {
-	path: "cash-registers",
-	element: <LayoutSubMenu navigation={cashRegistersChildren} index={<IndexCashRegisters/>} rootPagePath="/cash-registers"/>,
+    path: 'cash-registers',
+    element: (
+        <LayoutSubMenu
+            navigation={cashRegistersChildren}
+            index={<IndexCashRegisters />}
+            rootPagePath="/cash-registers"
+        />
+    ),
 
-	children: [...cashRegistersChildren],
+    children: [...cashRegistersChildren],
 };
 
 export default cashRegisters;

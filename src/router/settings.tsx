@@ -1,6 +1,6 @@
 // pages
-import Profile from "@/veiws/Settings/Profile/Profile";
-import Security from "@/veiws/Settings/Security/Security";
+import Profile from "@/pages/Settings/Profile/Profile";
+import Security from "@/pages/Settings/Security/Security";
 
 // components
 import LayoutSubMenu from "@/components/Layouts/LayoutSubMenu/LayoutSubMenu";
