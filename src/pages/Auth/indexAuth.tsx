@@ -12,20 +12,11 @@ const IndexAuth = function () {
 	const navigate = useNavigate();
 
 
-	const handleLogin = (email:any, password:any) => {
-		const data = { email: email, password: password };
-		console.log(data)
-		axios.post(`${process.env.REACT_APP_SERVER_LINK}api/users/login/`, data)
+	const handleLogin = (email:any) => {
+		axios.get(`${process.env.REACT_APP_SERVER_LINK}api/users/exists/?email=${email}`)
 		.then((response) => {
-			if(response.data.status === 'success') {
-				console.log(data.email, response.data.token)
-				dispatch(setUser({
-					email: data.email,
-					token: response.data.token
-				}));
+			console.log(response);
 
-				navigate('/');
-			}
 		})
 		.catch((error) => {
 			console.log(error);

@@ -12,7 +12,6 @@ import CashregisterRoutes from './cashRegister';
 import HelpRouter from './help';
 import SettingsRoutes from './settings';
 import IndexAuth from '@/pages/Auth/indexAuth';
-import IndexRegistration from '@/pages/Registration/indexRegistration';
 import MailConfirm from '@/pages/MailConfirm';
 
 const router = createBrowserRouter([
@@ -42,11 +41,6 @@ const router = createBrowserRouter([
                 ...SettingsRoutes,
             },
         ],
-    },
-
-    {
-        path: '/registration',
-        element: <IndexRegistration/>
     },
 
     {
