@@ -1,12 +1,11 @@
 import styles from './index.module.scss'
 import { useState } from 'react';
 
-const AuthForm = function ({title, handleClick}) {
+const LoginForm = function ({handleClick}) {
   const [email, setEmail] = useState('');
 //   const [password, setPassword] = useState('');
-
 	return (
-        <form className={styles.loginForm} noValidate>
+        <form className={styles.loginForm}>
                 <label htmlFor="email">Почта/Логин:</label>
                 <input
                     type="email"
@@ -15,23 +14,14 @@ const AuthForm = function ({title, handleClick}) {
                     onChange={(e) => setEmail(e.target.value)}
                 />
 
-                {/* <label htmlFor="password">Пароль:</label>
-                <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                /> */}
-
                 <button 
                     onClick={() => handleClick(email)}
-                    type="submit"
+                    type="button"
                  >
-                {title}
+                    Далее
                 </button>
         </form>
 	);
 };
 
-export default AuthForm;
+export default LoginForm;

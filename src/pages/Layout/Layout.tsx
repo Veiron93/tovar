@@ -22,7 +22,7 @@ function Layout():any {
 
 	return (
 		<main className={`${styles.layoutWrapper}`}>
-			<div className="">{email}, Выйти </div>
+			<div className="">{email} </div>
 			<LeftSide />
 			<div className={styles.layoutContent}>
 				<Outlet />
