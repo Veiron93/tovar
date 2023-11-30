@@ -76,7 +76,6 @@ const IndexAuth = function () {
 		  .then((response) => {
 			  if(response.data.status === 'success') {
 				const token = response.data.token;
-				saveUser(email, token);
 				dispatch(setUser({email, token}))
 				return navigate("/");
 			  }
@@ -95,12 +94,6 @@ const IndexAuth = function () {
 		  
 
 	  }
-
-	  const saveUser = (email: any, token: any) => {
-		localStorage.setItem('email', email);
-		localStorage.setItem('token', token);
-	  };
-
 
 
 	  const forms = [
