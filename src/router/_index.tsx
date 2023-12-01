@@ -12,7 +12,6 @@ import CashregisterRoutes from './cashRegister';
 import HelpRouter from './help';
 import SettingsRoutes from './settings';
 import IndexAuth from '@/pages/Auth/indexAuth';
-import MailConfirm from '@/pages/MailConfirm';
 
 const router = createBrowserRouter([
     {
@@ -48,12 +47,6 @@ const router = createBrowserRouter([
         element: <IndexAuth/>
     },
 
-    {
-        path: '/mail-check',
-        element: <MailConfirm/>
-    },
-
-    
 ]);
 
 export default router;

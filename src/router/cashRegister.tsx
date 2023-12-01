@@ -23,14 +23,9 @@ const cashRegistersChildren = [
 const cashRegisters = {
     path: 'cash-registers',
     element: (
-        <LayoutSubMenu
-            navigation={cashRegistersChildren}
-            index={<IndexCashRegisters />}
-            rootPagePath="/cash-registers"
-        />
+        <IndexCashRegisters />
     ),
 
-    children: [...cashRegistersChildren],
 };
 
 export default cashRegisters;

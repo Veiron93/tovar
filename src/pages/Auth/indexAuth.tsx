@@ -69,9 +69,6 @@ const IndexAuth = function () {
 			password: password
 		  };
 
-		  console.log(data) // password = undefined
-
-
 		  axios.post(`${process.env.REACT_APP_SERVER_LINK}api/users/login`, data)
 		  .then((response) => {
 			  if(response.data.status === 'success') {
@@ -92,6 +89,13 @@ const IndexAuth = function () {
 			password: password
 		  };
 		  
+		  axios.post(`${process.env.REACT_APP_SERVER_LINK}api/users/register/`, data)
+		  .then((response) => {
+				setActiveForm('mail-confirm');
+			})
+		  .catch((error) => {
+			  console.log(error.response);
+			});
 
 	  }
 
