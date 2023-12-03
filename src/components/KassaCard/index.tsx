@@ -3,6 +3,7 @@ import Modal, { RefType } from '@/components/Modal/Modal';
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import axios from 'axios';
+import style from './index.module.scss';
 
 interface Kassa {
     id: number;
@@ -80,7 +81,7 @@ const KassaCard = function ({ kassa }: { kassa: Pick<Kassa, 'id' | 'name'> }) {
     };
 
     return (
-        <div className="">
+        <div className={style.kassa}>
             {kassa.name}
             <Button onPress={onKassaParams} text="Настроить" />
 

@@ -1,0 +1,13 @@
+.kassaListHead {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.kassaList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

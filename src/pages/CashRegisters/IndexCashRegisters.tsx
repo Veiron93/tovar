@@ -5,7 +5,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import Modal, { RefType } from '@/components/Modal/Modal';
 import { useAxios } from '@/hooks/use-axios';
-
+import style from './index.module.scss';
 interface Kassa {
     id: number;
     name: string;
@@ -37,31 +37,29 @@ const IndexCashRegisters = function () {
         //         console.log(error.response);
         //     });
 
-        api.get('api/users/kassas')
-            .then((response) => {
-                setKassas(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        api.get('api/users/kassas').then((response) => {
+            setKassas(response.data);
+        });
     };
 
     const onKassaCreate = () => {
         const data = {
             kassaName,
         };
-        axios
-            .post(`${process.env.REACT_APP_SERVER_LINK}api/users/kassas/create`, data, {
-                headers: { 'user-token': token },
-            })
-            .then((response) => {
-                getCashRegList();
-            })
-            .catch((error) => {
-                console.log(error.response);
-            });
+        // axios
+        //     .post(`${process.env.REACT_APP_SERVER_LINK}api/users/kassas/create`, data, {
+        //         headers: { 'user-token': token },
+        //     })
+        //     .then((response) => {
+        //         getCashRegList();
+        //     })
+        //     .catch((error) => {
+        //         console.log(error.response);
+        //     });
 
-        //
+        api.post(`api/users/kassas/create`, data).then(() => {
+            getCashRegList();
+        });
     };
 
     useEffect(() => {
@@ -70,14 +68,20 @@ const IndexCashRegisters = function () {
 
     return (
         <div className="index">
-            <p>кассы главная</p>
+            <div className={style.kassaListHead}>
+                <h1 className="index-title">Кассы</h1>
+                <Button text="Cоздать кассу" onPress={showModulCreateKassa} />
+            </div>
+
             {kassas.length === 0 ? (
                 <p>Список касс пуст</p>
             ) : (
-                kassas.map((kassa) => <KassaCard key={kassa.id} kassa={kassa} />)
+                <div className={style.kassaList}>
+                    {kassas.map((kassa) => (
+                        <KassaCard key={kassa.id} kassa={kassa} />
+                    ))}
+                </div>
             )}
-
-            <Button text="Cоздать кассу" onPress={showModulCreateKassa} />
             <Modal title="Создать кассу" ref={childRef}>
                 <div>
                     <form>

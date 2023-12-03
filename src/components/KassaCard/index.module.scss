@@ -1,0 +1,9 @@
+.kassa {
+    border-radius: var(--brs);
+    display: flex;
+    max-width: 600px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--card);
+}
