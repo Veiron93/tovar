@@ -15,8 +15,9 @@ export function useAxios() {
     instance.interceptors.response.use(
         (response) => response,
         (error: any) => {
-            if (error.response && error.response.status === 401) {
+            if (error.response && error.response.data.error.code === 0) {
                 // если запрос не авторизован, перенаправляем на страницу входа
+                console.log(error.response.data);
                 dispatch(removeUser());
             } else {
                 // для всех остальных ошибок выводим сообщение об ошибке

@@ -73,7 +73,7 @@ const IndexCashRegisters = function () {
                 <Button text="Cоздать кассу" onPress={showModulCreateKassa} />
             </div>
 
-            {kassas.length === 0 ? (
+            {Array.isArray(kassas) && kassas.length === 0 ? (
                 <p>Список касс пуст</p>
             ) : (
                 <div className={style.kassaList}>
