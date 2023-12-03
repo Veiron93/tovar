@@ -22,14 +22,27 @@
             margin-bottom: 6px;
         }
 
-        img {
-            display: block;
-            height: 38px;
-        }
-
         span {
             font-size: 13px;
+            color: var(--color-2);
+        }
+    }
+
+    .navigationIcon {
+        fill: var(--color-2);
+        width: 30px;
+        height: 40px;
+    }
+
+    .navigationItemActive {
+        background: var(--color-main);
+
+        span {
             color: #000;
+        }
+
+        .navigationIcon {
+            fill: #000;
         }
     }
 }

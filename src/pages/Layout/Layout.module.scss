@@ -9,9 +9,9 @@
 }
 
 .layoutContent {
-    border: 1px solid #ededed;
+    border: 1px solid var(--background);
     width: 100%;
     border-radius: var(--brs);
     padding: 10px;
-    background: #fff;
+    background-color: var(--color-3);
 }

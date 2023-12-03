@@ -4,6 +4,8 @@ import axios from 'axios';
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import Modal, { RefType } from '@/components/Modal/Modal';
+import { useAxios } from '@/hooks/use-axios';
+
 interface Kassa {
     id: number;
     name: string;
@@ -13,6 +15,7 @@ const IndexCashRegisters = function () {
     const { token } = useSelector((state: any) => state.user);
     const [kassas, setKassas] = useState<Kassa[]>([]);
     const [kassaName, setKassaName] = useState('');
+    const api = useAxios();
     const childRef = useRef<RefType>(null);
 
     function showModulCreateKassa() {
@@ -22,16 +25,24 @@ const IndexCashRegisters = function () {
     }
 
     const getCashRegList = () => {
-        axios
-            .get(`${process.env.REACT_APP_SERVER_LINK}api/users/kassas`, {
-                headers: { token: token },
-            })
+        // axios
+        //     .get(`${process.env.REACT_APP_SERVER_LINK}api/users/kassas`, {
+        //         headers: { token: token },
+        //     })
+        //     .then((response) => {
+        //         // handle the response
+        //         setKassas(response.data);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error.response);
+        //     });
+
+        api.get('api/users/kassas')
             .then((response) => {
-                // handle the response
                 setKassas(response.data);
             })
             .catch((error) => {
-                console.log(error.response);
+                console.error(error);
             });
     };
 

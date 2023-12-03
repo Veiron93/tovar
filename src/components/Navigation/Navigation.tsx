@@ -2,8 +2,6 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './Navigation.module.scss';
 
-import icon from '@/assets/img/icons/black-box.svg';
-
 const Navigation = () => {
     let activeStyle = {
         background: getComputedStyle(document.documentElement).getPropertyValue('--color-main'),
@@ -13,42 +11,62 @@ const Navigation = () => {
         <div className={styles.navigationWrapper}>
             <NavLink
                 to="/"
-                className={`${styles.navigationItem}`}
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-                <img src={icon} alt="" />
+                className={({ isActive }) =>
+                    (isActive ? styles.navigationItemActive : '') + ` ${styles.navigationItem}`
+                }>
+                <svg className={styles.navigationIcon} viewBox="0 0 24 24">
+                    <path d="M23.045,8.035l-2.045-1.607V2h-1v3.641L13.545,.567c-.91-.715-2.182-.715-3.09,0L.955,8.035c-.607,.477-.955,1.193-.955,1.965v14H8V14.5c0-.827,.673-1.5,1.5-1.5h5c.827,0,1.5,.673,1.5,1.5v9.5h8V10c0-.772-.348-1.489-.955-1.965Zm-.045,14.965h-6V14.5c0-1.378-1.121-2.5-2.5-2.5h-5c-1.379,0-2.5,1.122-2.5,2.5v8.5H1V10c0-.463,.209-.893,.572-1.179L11.072,1.353c.547-.429,1.309-.429,1.855,0l9.5,7.468c.363,.286,.572,.716,.572,1.179v13Z" />
+                </svg>
+
                 <span>Главная</span>
             </NavLink>
 
             <NavLink
                 to="products"
-                className={`${styles.navigationItem}`}
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-                <img src={icon} alt="" />
+                className={({ isActive }) =>
+                    (isActive ? styles.navigationItemActive : '') + ` ${styles.navigationItem}`
+                }>
+                <svg
+                    className={styles.navigationIcon}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 491 491">
+                    <path d="m489.658 189.942-45.205-85.169a11.482 11.482 0 0 0-7.108-5.693c-.02-.005-.032-.012-.053-.018L248.97 48.229a11.518 11.518 0 0 0-5.98-.004L53.721 99.058c-.021.006-.035.013-.057.019a11.478 11.478 0 0 0-7.118 5.696L1.342 189.942a11.503 11.503 0 0 0 5.243 15.788l39.331 18.592v116.344c0 4.414 2.526 8.439 6.502 10.356l188.557 91.002a11.482 11.482 0 0 0 4.997 1.143c1.691 0 3.372-.389 4.927-1.127.025-.006.049-.005.072-.017l188.557-91.002a11.497 11.497 0 0 0 6.502-10.356V224.332c0-.15-.017-.297-.022-.445l38.408-18.156a11.499 11.499 0 0 0 5.242-15.789zM245.965 71.241l150.587 40.647L245.5 167.87 94.52 111.916l151.445-40.675zM62.144 124.445l167.892 62.223-36.977 81.771-165.753-78.354 34.838-65.64zm6.772 209.002v-98.252l124.887 59.035a11.495 11.495 0 0 0 8.883.398 11.5 11.5 0 0 0 6.511-6.056l25.276-55.896v180.673L68.916 333.447zm354.113 0-165.557 79.902V234.767l24.331 53.805a11.503 11.503 0 0 0 10.479 6.762c1.684 0 3.363-.369 4.915-1.104l125.832-59.482v98.699zm-125.088-65.009-36.978-81.771 167.892-62.223 34.839 65.64-165.753 78.354z" />
+                </svg>
                 <span>Товары</span>
             </NavLink>
 
             <NavLink
                 to="cash-registers"
-                className={`${styles.navigationItem}`}
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-                <img src={icon} alt="" />
+                className={({ isActive }) =>
+                    (isActive ? styles.navigationItemActive : '') + ` ${styles.navigationItem}`
+                }>
+                <svg className={styles.navigationIcon} viewBox="0 0 24 24">
+                    <path d="M21.5,10H7V6h6V2.5c0-1.378-1.121-2.5-2.5-2.5H2.5C1.121,0,0,1.122,0,2.5v3.5H6v4H2.5c-1.379,0-2.5,1.122-2.5,2.5v11.5H24V12.5c0-1.378-1.121-2.5-2.5-2.5ZM1,2.5c0-.827,.673-1.5,1.5-1.5H10.5c.827,0,1.5,.673,1.5,1.5v2.5H1V2.5Zm1.5,8.5H21.5c.827,0,1.5,.673,1.5,1.5v6.5H1v-6.5c0-.827,.673-1.5,1.5-1.5Zm-1.5,12v-3H23v3H1ZM9,15c0-.552,.448-1,1-1s1,.448,1,1-.448,1-1,1-1-.448-1-1Zm-4,0c0-.552,.448-1,1-1s1,.448,1,1-.448,1-1,1-1-.448-1-1Zm8,0c0-.552,.448-1,1-1s1,.448,1,1-.448,1-1,1-1-.448-1-1Zm4,0c0-.552,.448-1,1-1s1,.448,1,1-.448,1-1,1-1-.448-1-1Z" />
+                </svg>
+
                 <span>Кассы</span>
             </NavLink>
 
             <NavLink
-                to="help"
-                className={`${styles.navigationItem}`}
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-                <img src={icon} alt="" />
-                <span>Справка</span>
+                to="staff"
+                className={({ isActive }) =>
+                    (isActive ? styles.navigationItemActive : '') + ` ${styles.navigationItem}`
+                }>
+                <svg className={styles.navigationIcon} viewBox="0 0 24 24">
+                    <path d="m21.5,4h-6.5v-1c0-1.654-1.346-3-3-3s-3,1.346-3,3v1H2.5c-1.378,0-2.5,1.121-2.5,2.5v17.5h24V6.5c0-1.379-1.122-2.5-2.5-2.5Zm-11.5-1c0-1.103.897-2,2-2s2,.897,2,2v4h-4V3Zm13,20H1V6.5c0-.827.673-1.5,1.5-1.5h6.5v3h6v-3h6.5c.827,0,1.5.673,1.5,1.5v16.5Zm-6-3.5v1.5h-1v-1.5c0-.827-.673-1.5-1.5-1.5h-5c-.827,0-1.5.673-1.5,1.5v1.5h-1v-1.5c0-1.379,1.122-2.5,2.5-2.5h5c1.378,0,2.5,1.121,2.5,2.5Zm-5-3.5c1.654,0,3-1.346,3-3s-1.346-3-3-3-3,1.346-3,3,1.346,3,3,3Zm0-5c1.103,0,2,.897,2,2s-.897,2-2,2-2-.897-2-2,.897-2,2-2Z" />
+                </svg>
+                <span>Сотрудники</span>
             </NavLink>
 
             <NavLink
-                to="staff"
-                className={`${styles.navigationItem}`}
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}>
-                <img src={icon} alt="" />
-                <span>Сотрудники</span>
+                to="help"
+                className={({ isActive }) =>
+                    (isActive ? styles.navigationItemActive : '') + ` ${styles.navigationItem}`
+                }>
+                <svg viewBox="0 0 128 128" className={styles.navigationIcon}>
+                    <path d="M 64 6 C 32 6 6 32 6 64 C 6 96 32 122 64 122 C 96 122 122 96 122 64 C 122 32 96 6 64 6 z M 64 12 C 92.7 12 116 35.3 116 64 C 116 92.7 92.7 116 64 116 C 35.3 116 12 92.7 12 64 C 12 35.3 35.3 12 64 12 z M 64 38 C 62.3 38 61 39.3 61 41 L 61 46 C 61 47.7 62.3 49 64 49 C 65.7 49 67 47.7 67 46 L 67 41 C 67 39.3 65.7 38 64 38 z M 64 58 C 62.3 58 61 59.3 61 61 L 61 87 C 61 88.7 62.3 90 64 90 C 65.7 90 67 88.7 67 87 L 67 61 C 67 59.3 65.7 58 64 58 z" />
+                </svg>
+                <span>Справка</span>
             </NavLink>
         </div>
     );

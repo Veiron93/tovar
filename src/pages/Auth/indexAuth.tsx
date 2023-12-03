@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { setUser } from '@/redux/slices/userSlice';
 import { useState, useEffect } from 'react';
-import { useAuth } from '@/hooks/use-auth';
 
 const IndexAuth = function () {
     const dispatch = useDispatch();
