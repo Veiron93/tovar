@@ -42,6 +42,14 @@ const Navigation = () => {
                 <img src={icon} alt="" />
                 <span>Справка</span>
             </NavLink>
+
+            <NavLink
+                to="staff"
+                className={`${styles.navigationItem}`}
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                <img src={icon} alt="" />
+                <span>Сотрудники</span>
+            </NavLink>
         </div>
     );
 };

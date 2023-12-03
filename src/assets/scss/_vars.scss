@@ -1,12 +1,22 @@
 :root {
-	// Colors
-	--color-main: #fed208;
-	--color-1: #333;
-	--grey: #f7f7f7;
+    // Colors
+    --background: #f2f2f2;
+    --color-main: #fed208;
+    --color-1: #333;
+    --color-2: #000;
+    --color-3: #fff;
+    --grey: #f7f7f7;
 
-	// Other
-	--brs: 18px;
+    // Other
+    --brs: 18px;
 
-	// Fonts
-	--mainFont: "Montserrat", sans-serif;
+    // Fonts
+    --mainFont: 'Montserrat', sans-serif;
+}
+
+[data-theme='dark'] {
+    --background: #05010a;
+    --grey: #333;
+    --color-3: #333;
+    --color-2: #fff;
 }

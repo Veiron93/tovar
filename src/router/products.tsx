@@ -23,13 +23,10 @@ isChilds = !!productsChildren.length;
 const products = {
     path: 'products',
     name: 'Товары',
-    element: !isChilds ? (
+    element: isChilds ? (
         <WelcomeProducts />
     ) : (
-        <LayoutProducts
-            navigation={productsChildren}
-            rootPagePath="/products"
-        />
+        <LayoutProducts navigation={productsChildren} rootPagePath="/products" />
     ),
 
     children: [...productsChildren],

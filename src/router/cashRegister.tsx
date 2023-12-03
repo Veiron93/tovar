@@ -1,17 +1,17 @@
 // pages
 import IndexCashRegisters from '@/pages/CashRegisters/IndexCashRegisters';
-import Profile from '@/pages/CashRegisters/Places/Places';
+// import Profile from '@/pages/CashRegisters/Places/Places';
 //import Security from "@/pages/CashRegisters/Security/Security";
 
 // components
 import LayoutSubMenu from '@/components/Layouts/LayoutSubMenu/LayoutSubMenu';
 
 const cashRegistersChildren = [
-    {
-        path: 'places',
-        name: 'Торговые точки',
-        element: <Profile />,
-    },
+    // {
+    //     path: 'places',
+    //     name: 'Торговые точки',
+    //     element: <Profile />,
+    // },
 
     // {
     // 	path: "other",

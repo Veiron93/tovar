@@ -12,7 +12,7 @@ import CashregisterRoutes from './cashRegister';
 import HelpRouter from './help';
 import SettingsRoutes from './settings';
 import IndexAuth from '@/pages/Auth/indexAuth';
-
+import Staff from './staff';
 const router = createBrowserRouter([
     {
         path: '/',
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
             },
 
             {
+                ...Staff,
+            },
+
+            {
                 ...HelpRouter,
             },
 
@@ -44,9 +48,8 @@ const router = createBrowserRouter([
 
     {
         path: '/auth',
-        element: <IndexAuth/>
+        element: <IndexAuth />,
     },
-
 ]);
 
 export default router;

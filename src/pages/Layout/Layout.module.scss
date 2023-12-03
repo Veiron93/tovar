@@ -1,17 +1,17 @@
 .layoutWrapper {
-	display: flex;
-	width: 100%;
-	max-width: 1400px;
-	min-height: 100vh;
-	padding: 15px;
-	margin: 0 auto;
-	//border: 1px solid red;
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    min-height: 100vh;
+    padding: 15px;
+    margin: 0 auto;
+    //border: 1px solid red;
 }
 
 .layoutContent {
-	border: 1px solid #ededed;
-	width: 100%;
-	border-radius: var(--brs);
-	padding: 10px;
-	background: #fff;
+    border: 1px solid #ededed;
+    width: 100%;
+    border-radius: var(--brs);
+    padding: 10px;
+    background: #fff;
 }
