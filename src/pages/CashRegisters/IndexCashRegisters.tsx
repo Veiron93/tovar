@@ -23,7 +23,6 @@ const IndexCashRegisters = function () {
 	const { token } = useSelector((state: any) => state.user);
 	const [kassas, setKassas] = useState<Kassa[]>([]);
 	const [kassaName, setKassaName] = useState("");
-
 	const childRef = useRef<RefType>(null);
 
 	function showModulCreateKassa() {
@@ -94,11 +93,13 @@ const IndexCashRegisters = function () {
 			)}
 			<Modal title="Создать кассу" ref={childRef}>
 				<div>
-					<form>
-						<label>Название кассы</label>
-						<input onChange={(e) => setKassaName(e.target.value)} type="text" placeholder="Касса 1" />
-					</form>
+					<form className="modal-form modal-form--cash">
+                        <div className="input-block">
+                            <label>Название кассы</label>
+						    <input onChange={(e) => setKassaName(e.target.value)} type="text" placeholder="Касса 1" />
+                        </div>
 
+					</form>
 					<Button onPress={onKassaCreate} text="Cоздать" />
 				</div>
 			</Modal>

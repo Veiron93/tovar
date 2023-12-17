@@ -1,14 +1,19 @@
 .button {
     border-radius: var(--brs);
-    background: var(--btns);
+    // background: var(--btns);
     color: var(--color-4);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 48px;
-    min-width: 200px;
+    height: 30px;
+    width: 30px;
     font-size: 18px;
-    padding: 0px 25px;
     cursor: pointer;
     user-select: none;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
 }

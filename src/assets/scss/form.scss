@@ -1,0 +1,9 @@
+.modal-form {
+    display: flex;
+    flex-direction: column;
+
+    .input-block {
+        display: flex;
+        flex-direction: column;
+    }
+}

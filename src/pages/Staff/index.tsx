@@ -4,12 +4,15 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import Modal, { RefType } from '@/components/Modal/Modal';
 import StaffCard from '@/components/StaffCard';
+import { useAxios } from "@/hooks/use-axios";
+
 
 interface Staff {
     id: number;
     first_name: string;
     last_name: string;
     middle_name: string;
+    pincode_hash: string;
 }
 
 const Staff = function () {
@@ -18,23 +21,17 @@ const Staff = function () {
     const [staffFirstName, setStaffFirstName] = useState('');
     const [staffLasttName, setStaffLastName] = useState('');
     const [staffMiddleName, setStaffMiddleName] = useState('');
+    const [kassaPinCode, setKassaPinCode] = useState("");
 
     const childRef = useRef<RefType>(null);
 
+    const api = useAxios();
+
     const getStaff = () => {
-        axios
-            .get(`${process.env.REACT_APP_SERVER_LINK}api/users/personal`, {
-                headers: { 'user-token': token },
-            })
-            .then((response) => {
-                // handle the response
-                // setKassas(response.data);
-                setStaff(response.data);
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log(error.response);
-            });
+        api.get(`api/users/personal`).then((response) => {
+            setStaff(response.data);
+            console.log(response);
+        });
     };
 
     useEffect(() => {
@@ -52,17 +49,10 @@ const Staff = function () {
             first_name: staffFirstName,
             last_name: staffLasttName,
             middle_name: staffMiddleName,
-            pincode: 123,
+            pincode: kassaPinCode,
         };
-        axios
-            .post(`${process.env.REACT_APP_SERVER_LINK}api/users/personal/create`, data, {
-                headers: { 'user-token': token },
-            })
-            .then((response) => {
+            api.post(`api/users/personal/create`, data).then(() => {
                 getStaff();
-            })
-            .catch((error) => {
-                console.log(error.response);
             });
 
         //
@@ -70,7 +60,7 @@ const Staff = function () {
 
     return (
         <div className="index">
-            <p>Сотрудники</p>
+            <h2 className='index-title'>Сотрудники</h2>
 
             {staff.length === 0 ? (
                 <p>Список сотрудников пуст</p>
@@ -81,25 +71,36 @@ const Staff = function () {
             <Button text="Добавить сотрудника" onPress={showModulCreateStaff} />
             <Modal title="Добавить сотрудника" ref={childRef}>
                 <div>
-                    <form>
-                        <label>Фамилия</label>
-                        <input
-                            onChange={(e) => setStaffLastName(e.target.value)}
-                            type="text"
-                            placeholder="Зубенко"
-                        />
-                        <label>Имя</label>
-                        <input
-                            onChange={(e) => setStaffFirstName(e.target.value)}
-                            type="text"
-                            placeholder="Михаил"
-                        />
-                        <label>Отчество</label>
-                        <input
-                            onChange={(e) => setStaffMiddleName(e.target.value)}
-                            type="text"
-                            placeholder="Петрович"
-                        />
+                    <form className='modal-form'>
+                        <div className="input-block">
+                            <label>Фамилия</label>
+                            <input
+                                onChange={(e) => setStaffLastName(e.target.value)}
+                                type="text"
+                                placeholder=""
+                            />
+                        </div>
+                        <div className="input-block">
+                            <label>Имя</label>
+                            <input
+                                onChange={(e) => setStaffFirstName(e.target.value)}
+                                type="text"
+                                placeholder=""
+                            />
+                        </div>
+                        <div className="input-block">
+                            <label>Отчество</label>
+                            <input
+                                onChange={(e) => setStaffMiddleName(e.target.value)}
+                                type="text"
+                                placeholder=""
+                            />
+                        </div>
+
+                        <div className="input-block">
+                            <label>Пин код</label>
+						    <input maxLength={4} onChange={(e) => setKassaPinCode(e.target.value)} type="number" placeholder="1234" />
+                        </div>
                     </form>
 
                     <Button onPress={onStaffCreate} text="Cоздать" />

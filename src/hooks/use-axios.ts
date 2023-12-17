@@ -21,7 +21,7 @@ export function useAxios() {
                 dispatch(removeUser());
             } else {
                 // для всех остальных ошибок выводим сообщение об ошибке
-                alert('Ошибка ');
+                console.log(error.message);
             }
             return Promise.reject(error);
         },

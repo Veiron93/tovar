@@ -1,10 +1,10 @@
 import Button from "@/ui-components/Button/Button";
+import ButtonSettings from "@/ui-components/ButtonSettings/ButtonSettings";
 import Modal, { RefType } from "@/components/Modal/Modal";
 import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import axios from "axios";
 import style from "./index.module.scss";
-
 // models
 import { Kassa } from "@/models/kassas";
 
@@ -73,8 +73,7 @@ const KassaCard = function ({ kassa }: { kassa: Pick<Kassa, "id" | "name"> }) {
 	return (
 		<div className={style.kassa}>
 			{kassa.name}
-
-			<Button onPress={onKassaParams} text="Настроить" />
+			<ButtonSettings onPress={onKassaParams}  />
 
 			<Modal title={kassa.name} ref={childRef}>
 				{staff.length === 0 ? (

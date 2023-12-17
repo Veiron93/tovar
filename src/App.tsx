@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import '@/assets/scss/_vars.scss';
 import '@/assets/scss/reset.scss';
 import '@/assets/scss/main.scss';
+import '@/assets/scss/form.scss';
 import { store } from './redux/store';
 
 function App() {
