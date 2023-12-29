@@ -27,7 +27,7 @@ const StaffCard = function ({ staff }: { staff: Staff }) {
 
     return (
         <div className={style.staff}>
-            {staff.first_name} {staff.last_name} {staff.middle_name} {staff.middle_name}
+            {staff.first_name} {staff.last_name} {staff.middle_name} {staff.staff_password}
 
             <ButtonSettings onPress={onStaffParams}  />
 

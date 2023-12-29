@@ -53,7 +53,7 @@ const IndexCashRegisters = function () {
 
 	const onKassaCreate = () => {
 		const data = {
-			kassaName,
+			name: kassaName,
 		};
 		// axios
 		//     .post(`${process.env.REACT_APP_SERVER_LINK}api/users/kassas/create`, data, {
