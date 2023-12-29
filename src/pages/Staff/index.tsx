@@ -12,7 +12,7 @@ interface Staff {
     first_name: string;
     last_name: string;
     middle_name: string;
-    pincode_hash: string;
+    staff_password: string;
 }
 
 const Staff = function () {
@@ -49,7 +49,7 @@ const Staff = function () {
             first_name: staffFirstName,
             last_name: staffLasttName,
             middle_name: staffMiddleName,
-            pincode: kassaPinCode,
+            password: kassaPinCode,
         };
             api.post(`api/users/personal/create`, data).then(() => {
                 getStaff();

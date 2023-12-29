@@ -9,7 +9,7 @@ interface Staff {
     first_name: string;
     last_name: string;
     middle_name: string;
-    pincode_hash: string;
+    staff_password: string;
 }
 
 const StaffCard = function ({ staff }: { staff: Staff }) {
